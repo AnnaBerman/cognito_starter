@@ -9,6 +9,7 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "aws-amplify": "^2.2.2",
     "bulma": "^0.8.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
@@ -36,5 +37,17 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AnnaBerman/cognito_starter.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AnnaBerman/cognito_starter/issues"
+  },
+  "homepage": "https://github.com/AnnaBerman/cognito_starter#readme"
 }
