@@ -3,11 +3,10 @@ import FormErrors from "../FormErrors";
 import Validate from "../util/Validation";
 import { Auth } from "aws-amplify";
 
-class Register extends Component {
+class ChangePassword extends Component {
   //state variables for form inputs and errors
   state = {
-    username: "",
-    email: "",
+    oldpassword: "",
     password: "",
     confirmpassword: "",
     errors: {
@@ -40,17 +39,13 @@ class Register extends Component {
       });
     } else {
       //Integrate Cognito here on valid form submission
-      const { username, email, password } = this.state;
       try {
-        const signUpResponse = await Auth.signUp({
-          username,
-          password,
-          attributes: {
-            email: email
-          }
-        });
-        console.log(signUpResponse);
-        this.props.history.push("/welcome");
+        await Auth.changePassword(
+          this.props.auth.user,
+          this.state.oldpassword,
+          this.state.password
+        );
+        this.props.history.push("/changepasswordconfirmation");
       } catch (error) {
         let err = !error.message ? { message: error } : error;
         this.setState({ errors: { ...this.state.errors, cognito: err } });
@@ -69,32 +64,17 @@ class Register extends Component {
     return (
       <section className="section auth">
         <div className="container">
-          <h1>Register</h1>
+          <h1>Change Password</h1>
           <FormErrors formerrors={this.state.errors} />
           <form onSubmit={this.handleSubmit}>
             <div className="field">
               <p className="control has-icons-left">
                 <input
                   className="input"
-                  type="text"
-                  id="username"
-                  placeholder="Enter username"
-                  value={this.state.username}
-                  onChange={this.onInputChange}
-                />
-                <span className="icon is-small is-left">
-                  <i className="fas fa-user"></i>
-                </span>
-              </p>
-            </div>
-            <div className="field">
-              <p className="control has-icons-left">
-                <input
-                  className="input"
-                  type="email"
-                  id="email"
-                  placeholder="Enter email"
-                  value={this.state.email}
+                  type="password"
+                  id="oldpassword"
+                  placeholder="Old Password"
+                  value={this.state.oldpassword}
                   onChange={this.onInputChange}
                 />
                 <span className="icon is-small is-left">
@@ -108,7 +88,7 @@ class Register extends Component {
                   className="input"
                   type="password"
                   id="password"
-                  placeholder="Password"
+                  placeholder="New Password"
                   value={this.state.password}
                   onChange={this.onInputChange}
                 />
@@ -139,7 +119,7 @@ class Register extends Component {
             </div>
             <div className="field">
               <p className="control">
-                <button className="button is-success">Register</button>
+                <button className="button is-success">Change password</button>
               </p>
             </div>
           </form>
@@ -148,4 +128,4 @@ class Register extends Component {
     );
   }
 }
-export default Register;
+export default ChangePassword;
