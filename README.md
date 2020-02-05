@@ -10,19 +10,19 @@ Implemented register, login (including email verification), logout, change passw
 
 ## 3) AWS RDS
 Created AWS database with table Pet with next columns: id (primary key), name, description and imageURL.
-![](https://annaberman.github.io/cognito_starter/images/rds.png)
+![](/images/rds.png)
 
 ## 4) AWS Lambda function
 Created Lambda function. This function receive an optional parameter pet id and select from the AWS RDS all pets ar specific pet by id.
-![](https://annaberman.github.io/cognito_starter/images/lambda.png)
+![](/images/lambda.png)
 
 ## 5) AWS API gateway
 Created pet resource with GET and GET by id methods. These methods call AWS Lambda function and return data to the client.
-![](https://annaberman.github.io/cognito_starter/images/apiGateway.png)
+![](/images/apiGateway.png)
 
 ## 6) AWS S3 bucket
 Created AWS S3 bucket to store images of pets. Image url stored in imageURL column in Pet table.
-![](https://annaberman.github.io/cognito_starter/images/s3.png)
+![](/images/s3.png)
 
 ## 7) Bootstrap and Bulma
 Designed using bootstrap and bulma packages.
