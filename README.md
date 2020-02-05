@@ -10,19 +10,19 @@ Implemented register, login (including email verification), logout, change passw
 
 ## 3) AWS RDS
 Created AWS database with table Pet with next columns: id (primary key), name, description and imageURL.
-![](/images/rds.png)
+![rds](public/images/rds.png)
 
 ## 4) AWS Lambda function
 Created Lambda function. This function receive an optional parameter pet id and select from the AWS RDS all pets ar specific pet by id.
-![](/images/lambda.png)
+![lambda](public/images/lambda.png)
 
 ## 5) AWS API gateway
 Created pet resource with GET and GET by id methods. These methods call AWS Lambda function and return data to the client.
-![](/images/apiGateway.png)
+![apiGateway](public/images/apiGateway.png)
 
 ## 6) AWS S3 bucket
 Created AWS S3 bucket to store images of pets. Image url stored in imageURL column in Pet table.
-![](/images/s3.png)
+![s3](public/images/s3.png)
 
 ## 7) Bootstrap and Bulma
 Designed using bootstrap and bulma packages.
