@@ -21,6 +21,11 @@ export default class Navbar extends Component {
             <a href="/" className="navbar-item">
               Home
             </a>
+            {this.props.auth.isAuth && this.props.auth.user && (
+              <a href="/Pets" className="navbar-item">
+                Pets
+              </a>
+            )}
           </div>
           <div className="navbar-end">
             <div className="navbar-item">

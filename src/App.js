@@ -10,6 +10,8 @@ import ForgotPassword from "./components/auth/ForgotPassword";
 import ForgotPasswordSubmit from "./components/auth/ForgotPasswordSubmit";
 import ChangePasswordConfirmation from "./components/auth/ChangePasswordConfirmation";
 import ChangePassword from "./components/auth/ChangePassword";
+import Pets from "./components/Pets";
+import Pet from "./components/Pet";
 import { Auth } from "aws-amplify";
 
 class App extends Component {
@@ -50,7 +52,7 @@ class App extends Component {
 
     return (
       !this.state.checkingAuth && (
-        <div className="App">
+        <div className="App container">
           <Router>
             <div>
               <Navbar auth={authProps} />
@@ -102,6 +104,15 @@ class App extends Component {
                   render={props => (
                     <ChangePassword {...props} auth={authProps} />
                   )}
+                />
+                <Route
+                  exact
+                  path="/pets"
+                  render={props => <Pets {...props} auth={authProps} />}
+                />
+                <Route
+                  path="/pet/:id"
+                  render={props => <Pet {...props} auth={authProps} />}
                 />
               </Switch>
             </div>
